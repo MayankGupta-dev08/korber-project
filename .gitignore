@@ -1,27 +1,89 @@
-# Compiled class file
+############################
+# Java / Maven
+############################
 *.class
-
-# Log file
 *.log
 
-# Idea file
+# Maven build output
+target/
+**/target/
+
+# Maven wrapper
+.mvn/wrapper/maven-wrapper.jar
+
+############################
+# Spring Boot
+############################
+# Generated during runtime
+spring.log
+
+############################
+# IDEs
+############################
+
+# IntelliJ IDEA
 .idea/
+*.iml
+*.iws
+*.ipr
+out/
 
-# BlueJ files
-*.ctxt
+# VS Code
+.vscode/
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# Eclipse
+.project
+.classpath
+.settings/
 
-# Package Files #
+############################
+# OS files
+############################
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+############################
+# Archives & packages
+############################
 *.jar
 *.war
-*.nar
 *.ear
+*.nar
 *.zip
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+############################
+# JVM crash logs
+############################
 hs_err_pid*
 replay_pid*
+
+############################
+# Test / coverage reports
+############################
+surefire-reports/
+failsafe-reports/
+coverage/
+*.exec
+
+############################
+# Logs
+############################
+logs/
+*.log
+
+############################
+# Local env overrides (DO NOT COMMIT)
+############################
+application-local.yml
+application-dev.yml
+application-test.yml
+.env
+
+############################
+# Git tooling
+############################
+*.orig
