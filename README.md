@@ -7,8 +7,10 @@ This project implements two Spring Boot microservices for managing inventory and
 ```
 microservices-assignment/
 ├── inventory-service/
-│   ├── src/main/java/dev/mayank/koerber/inventory/
+│   ├── src/main/java/dev/mayank/korber/inventory/
 │   │   ├── InventoryServiceApplication.java
+│   │   ├── config/
+│   │   │   └── OpenApiConfig.java
 │   │   ├── controller/
 │   │   │   └── InventoryController.java
 │   │   ├── service/
@@ -25,6 +27,7 @@ microservices-assignment/
 │   │       ├── InventoryResponse.java
 │   │       ├── BatchDTO.java
 │   │       └── UpdateInventoryRequest.java
+│   │       └── UpdateInventoryResponse.java
 │   ├── src/main/resources/
 │   │   ├── application.yml
 │   │   ├── data/
@@ -33,9 +36,11 @@ microservices-assignment/
 │   │       ├── db.changelog-master.xml
 │   │       ├── 01-create-inventory-table.xml
 │   │       └── 02-load-inventory-data.xml
+│   ├── src/test/java/dev/mayank/korber/inventory/
+│   │   ├── InventoryServiceApplicationTests.java
 │   └── pom.xml
 ├── order-service/
-│   ├── src/main/java/dev/mayank/koerber/order/
+│   ├── src/main/java/dev/mayank/korber/order/
 │   │   ├── OrderServiceApplication.java
 │   │   ├── controller/
 │   │   │   └── OrderController.java
