@@ -6,7 +6,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>dev.mayank</groupId>
-    <artifactId>kober-project</artifactId>
+    <artifactId>korber-project</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>korber-project</name>
