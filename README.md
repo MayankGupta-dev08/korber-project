@@ -72,7 +72,7 @@ microservices-assignment/
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/MayankGupta-dev08/korber-project.git
-cd microservices-assignment
+cd korber-project
 ```
 
 ### 2. Build the Projects
