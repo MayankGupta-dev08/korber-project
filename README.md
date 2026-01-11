@@ -37,7 +37,10 @@ microservices-assignment/
 │   │       ├── 01-create-inventory-table.xml
 │   │       └── 02-load-inventory-data.xml
 │   ├── src/test/java/dev/mayank/korber/inventory/
-│   │   ├── InventoryServiceApplicationTests.java
+│   │   ├── InventoryServiceIntegrationTest.java
+│   │   ├── service/
+│   │       ├── DefaultInventoryHandlerTest.java
+│   │       ├── InventoryServiceTest.java
 │   └── pom.xml
 ├── order-service/
 │   ├── src/main/java/dev/mayank/korber/order/
@@ -68,6 +71,10 @@ microservices-assignment/
 │   │       ├── db.changelog-master.xml
 │   │       ├── 01-create-order-table.xml
 │   │       └── 02-load-order-data.xml
+│   ├── src/test/java/dev/mayank/korber/order/
+│   │   ├── OrderServiceIntegrationTest.java
+│   │   ├── service/
+│   │       ├── OrderServiceTest.java
 │   └── pom.xml
 └── README.md
 ```
