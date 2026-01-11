@@ -6,11 +6,11 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
 
@@ -34,7 +34,7 @@ public class Order {
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
 
-    @Column
+    @Column(name = "status")
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
 

@@ -16,5 +16,7 @@
             <column name="status" type="STRING"/>
             <column name="order_date" type="DATE"/>
         </loadData>
+        <!-- Reset the sequence to continue from the last loaded ID -->
+        <sql dbms="h2">ALTER TABLE orders ALTER COLUMN order_id RESTART WITH 11</sql>
     </changeSet>
 </databaseChangeLog>
