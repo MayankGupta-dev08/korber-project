@@ -109,7 +109,7 @@ class InventoryServiceIntegrationTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.success").value(true))
-                .andExpect(jsonPath("$.message").value("Inventory updated successfully"))
+                .andExpect(jsonPath("$.message").value("Successfully updated inventory"))
                 .andExpect(jsonPath("$.reservedBatchIds").isArray())
                 .andExpect(jsonPath("$.reservedBatchIds", hasSize(1)))
                 .andExpect(jsonPath("$.reservedBatchIds[0]").value(9));
