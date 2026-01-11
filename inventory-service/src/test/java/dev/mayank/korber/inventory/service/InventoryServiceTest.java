@@ -103,7 +103,7 @@ class InventoryServiceTest {
                 () -> inventoryService.getInventoryByProductId(productId)
         );
 
-        assertTrue(exception.getMessage().contains("Product not found"));
+        assertTrue(exception.getMessage().contains("No inventory found for"));
         verify(repository, times(1)).findByProductIdOrderByExpiryDateAsc(productId);
         verify(handlerFactory, never()).getDefaultHandler();
     }
@@ -116,9 +116,9 @@ class InventoryServiceTest {
         Integer quantity = 20;
         List<Long> reservedBatchIds = List.of(1L);
 
-        // Use ANY matchers to avoid stubbing mismatch
+        // The service always queries with 0 as the minimum quantity
         when(repository.findByProductIdAndQuantityGreaterThanOrderByExpiryDateAsc(
-                anyLong(), anyInt()))
+                productId, 0))
                 .thenReturn(sampleBatches);
 
         when(handlerFactory.getDefaultHandler())
@@ -136,7 +136,7 @@ class InventoryServiceTest {
         // Assert
         assertNotNull(response);
         assertTrue(response.getSuccess());
-        assertEquals("Inventory updated successfully", response.getMessage());
+        assertEquals("Successfully updated inventory", response.getMessage());
         assertEquals(reservedBatchIds, response.getReservedBatchIds());
 
         // Verify interactions
@@ -155,7 +155,7 @@ class InventoryServiceTest {
         Integer quantity = 100; // More than available (50 + 30 = 80)
 
         when(repository.findByProductIdAndQuantityGreaterThanOrderByExpiryDateAsc(
-                anyLong(), anyInt()))
+                productId, 0))
                 .thenReturn(sampleBatches);
 
         // Act & Assert
@@ -179,7 +179,7 @@ class InventoryServiceTest {
         Integer quantity = 10;
 
         when(repository.findByProductIdAndQuantityGreaterThanOrderByExpiryDateAsc(
-                anyLong(), anyInt()))
+                productId, 0))
                 .thenReturn(Collections.emptyList());
 
         // Act & Assert
@@ -200,7 +200,7 @@ class InventoryServiceTest {
         Integer quantity = 0;
 
         when(repository.findByProductIdAndQuantityGreaterThanOrderByExpiryDateAsc(
-                anyLong(), anyInt()))
+                productId, 0))
                 .thenReturn(sampleBatches);
 
         when(handlerFactory.getDefaultHandler())
