@@ -47,7 +47,7 @@ public class InventoryService {
     @Transactional
     public UpdateInventoryResponse updateInventory(Long productId, Integer quantity) {
         log.info("Updating inventory for  product id {} and quantity={}", productId, quantity);
-        List<InventoryBatch> batches = inventoryBatchRepository.findByProductIdAndQuantityGreaterThanOrderByExpiryDateAsc(productId, quantity);
+        List<InventoryBatch> batches = inventoryBatchRepository.findByProductIdAndQuantityGreaterThanOrderByExpiryDateAsc(productId, 0);
 
         if (batches.isEmpty()) {
             log.error("Product not found or out of stock: {}", productId);
