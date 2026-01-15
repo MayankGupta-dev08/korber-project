@@ -4,6 +4,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class InventoryHandlerFactory {
+    private static final String LIFO = "LIFO";
+    private static final String FIFO = "FIFO";
+
     private final DefaultInventoryHandler defaultInventoryHandler;
 
     public InventoryHandlerFactory(DefaultInventoryHandler defaultInventoryHandler) {
@@ -22,10 +25,11 @@ public class InventoryHandlerFactory {
      * @return Appropriate inventory handler
      */
     public InventoryHandler getInventoryHandler(String handlerType) {
-        InventoryHandler handler  = switch (handlerType) {
+        return switch (handlerType) {
+            case FIFO -> new DefaultInventoryHandler();
+            case LIFO -> new LIFOInventoryHandler();
             default -> defaultInventoryHandler;
         };
-        return handler;
     }
 
     /**
