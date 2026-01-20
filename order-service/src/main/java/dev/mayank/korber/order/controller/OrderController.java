@@ -69,7 +69,7 @@ public class OrderController {
                     content = @Content(schema = @Schema(implementation = OrderRequest.class))
             )
             @RequestBody OrderRequest orderRequest) {
-            log.info("POST /order - Placing order for product: {}, quantity: {}", orderRequest.getProductId(), orderRequest.getQuantity());
+        log.info("POST /order - Placing order for product: {}, quantity: {}", orderRequest.getProductId(), orderRequest.getQuantity());
         try {
             OrderResponse response = orderService.placeOrder(orderRequest);
             log.info("Order placed successfully: orderId={}", response.getOrderId());
