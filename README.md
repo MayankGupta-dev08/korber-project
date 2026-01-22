@@ -236,14 +236,14 @@ mvn verify
 **Inventory Service:**
 - URL: http://localhost:8081/h2-console
 - JDBC URL: jdbc:h2:mem:inventorydb
-- Username: sa
-- Password: (leave empty)
+- Username: inventory_user
+- Password: inventory_pass
 
 **Order Service:**
 - URL: http://localhost:8080/h2-console
 - JDBC URL: jdbc:h2:mem:orderdb
-- Username: sa
-- Password: (leave empty)
+- Username: order_user
+- Password: order_pass
 
 ## Design Patterns
 
