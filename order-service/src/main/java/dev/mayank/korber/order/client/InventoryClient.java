@@ -27,10 +27,11 @@ public class InventoryClient {
     }
 
     public InventoryUpdateResponse updateInventory(Long productId, Integer quantity) {
-        String url = inventoryServiceUrl + "/inventory/update/" + productId;
+        String url = inventoryServiceUrl + "/inventory/update";
         log.info("Updating inventory: productId={}, quantity={}", productId, quantity);
         InventoryUpdateRequest request = new InventoryUpdateRequest(productId, quantity);
         ResponseEntity<InventoryUpdateResponse> response = restTemplate.postForEntity(url, request, InventoryUpdateResponse.class);
         return response.getBody();
     }
 }
+
